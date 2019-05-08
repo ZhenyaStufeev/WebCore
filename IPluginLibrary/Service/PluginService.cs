@@ -1,4 +1,5 @@
-﻿using IPluginLibrary.Entity;
+﻿using IPluginLibrary.Context;
+using IPluginLibrary.Entity;
 using IPluginLibrary.Service;
 using System;
 using System.Collections.Generic;
@@ -12,7 +13,8 @@ namespace IPluginLibrary
         private List<PluginAssemblyLoadContext> contexts = new List<PluginAssemblyLoadContext>();
         private string[] plugins { get; set; }
         private string BaseDir { get; set; }
-        public PluginService()
+        IFileContext context { get; set; }
+        public PluginService(IFileContext fileContext)
         {
             string codeBase = Assembly.GetExecutingAssembly().CodeBase;
             UriBuilder uri = new UriBuilder(codeBase);
@@ -20,14 +22,18 @@ namespace IPluginLibrary
             string baseDir = Path.GetDirectoryName(path);
 
             LoadOnDir(baseDir + @"/plugins");
+            context = fileContext;
         }
-        public PluginService(string baseDir)
+        
+        public PluginService(string baseDir, IFileContext fileContext)
         {
             LoadOnDir(baseDir);
+            context = fileContext;
         }
-        public PluginService(string[] dir_plugins)
+        public PluginService(string[] dir_plugins, IFileContext fileContext)
         {
             LoadOnDir(dir_plugins);
+            context = fileContext;
         }
         private void LoadOnDir(string plugins_path)
         {

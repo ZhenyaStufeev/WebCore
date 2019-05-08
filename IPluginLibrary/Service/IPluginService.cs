@@ -5,7 +5,7 @@ using System.Text;
 
 namespace IPluginLibrary.Service
 {
-    interface IPluginService
+    public interface IPluginService
     {
         PluginInfo[] GetExtensionInfo();
         void InitialContexts();
