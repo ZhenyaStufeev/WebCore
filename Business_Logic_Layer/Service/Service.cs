@@ -1,8 +1,8 @@
 ﻿
-using Business_Logic_Layer.Entity;
 using IPluginLibrary;
 using IPluginLibrary.Service;
 using IPluginLibrary.Context;
+using IPluginLibrary.Entity;
 
 namespace Business_Logic_Layer.ServiceDir
 {
@@ -22,7 +22,7 @@ namespace Business_Logic_Layer.ServiceDir
             return 0;
         }
 
-        public ExtensionInfo GetExtensionInfo()
+        public PluginInfo GetExtensionInfo()
         {
             return null;
         }

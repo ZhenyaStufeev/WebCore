@@ -9,5 +9,6 @@ namespace IPluginLibrary.Entity
         public string PluginName { get; set; }
         public string Description { get; set; }
         public string Version { get; set; }
+        public string[] ActionsName { get; set; }
     }
 }

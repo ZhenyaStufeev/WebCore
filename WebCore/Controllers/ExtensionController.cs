@@ -1,6 +1,7 @@
-using Business_Logic_Layer.Entity;
+
 using Business_Logic_Layer.ServiceCreator;
 using Business_Logic_Layer.ServiceDir;
+using IPluginLibrary.Entity;
 using Microsoft.AspNetCore.Mvc;
 
 namespace WebCore.Controllers
@@ -17,16 +18,21 @@ namespace WebCore.Controllers
         }
 
         [HttpPost("[action]")]
-        public ExtensionResponce ExequteExtension(ExtensionRequest request)
+        public ActionResult ExequteExtension(ExtensionRequest request) //ExtensionResponce
         {
+            
+            if (request == null)
+                return BadRequest(new { error = "Request is null" });
+
+            //Передать данные исполнителю 
+
+            Context.Exequte();
+
+
+                
 
             return null;
         }
 
-        [HttpPost("[action]")]
-        public ExtensionInfo GetExtensionInfo(string ExtensionName)
-        {
-            return null;
-        }
     }
 }

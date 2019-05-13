@@ -82,9 +82,13 @@ namespace IPluginLibrary
             return extension_info.ToArray();
         }
 
-        public int ExequteExtension()
+        public IPlugin FindExtension(string ExtensionName, string ActionName)
         {
-            return 0;
+            foreach (var context in contexts)
+                foreach (var plugin in context.GetImplementations<IPlugin>())
+                    if (plugin.Verify(ExtensionName, ActionName))
+                        return plugin;
+            return null;
         }
     }
 }

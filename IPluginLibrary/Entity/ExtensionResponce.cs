@@ -3,9 +3,11 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace Business_Logic_Layer.Entity
+namespace IPluginLibrary.Entity
 {
     public class ExtensionResponce
     {
+        public string Data { get;  set; }
+        public bool Successed { get; set; }
     }
 }

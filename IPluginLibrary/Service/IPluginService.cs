@@ -9,6 +9,6 @@ namespace IPluginLibrary.Service
     {
         PluginInfo[] GetExtensionInfo();
         void InitialContexts();
-        int ExequteExtension();
+        IPlugin FindExtension(string ExtensionName, string ActionName);
     }
 }
